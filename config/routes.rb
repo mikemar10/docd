@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  constraints Clearance::Constraints::SignedOut.new do
+    root to: 'welcome#index'
+  end
+
+  constraints Clearance::Constraints::SignedIn.new do
+    root to: 'dashboard#index', as: :signed_in_root
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
