@@ -1,14 +1,34 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Docd</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DOCD</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'DOCD', root_path, class: 'navbar-brand' %>
+          <!-- search -->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <%= link_to 'UPLOAD', '#', class: 'navbar-right' %>
+          <%= link_to 'LIBRARY', '#', class: 'navbar-right' %>
+          <%= link_to 'USER', '#', class: 'navbar-right' %>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
 </html>
