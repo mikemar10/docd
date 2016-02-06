@@ -12,8 +12,8 @@
     </div>
     <% if signed_in? %>
       <div id="navbar" class="navbar-collapse collapse">
-        <%= link_to 'UPLOAD', '#', class: 'navbar-right' %>
-        <%= link_to 'LIBRARY', '#', class: 'navbar-right' %>
+        <%= link_to 'UPLOAD', new_document_path, class: 'navbar-right' %>
+        <%= link_to 'LIBRARY', library_path, class: 'navbar-right' %>
         <%= link_to current_user.email, '#', class: 'navbar-right' %>
         <%= link_to 'SIGN OUT', sign_out_path, class: 'navbar-right', method: :delete %>
       </div>

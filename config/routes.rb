@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     root to: 'dashboard#index', as: :signed_in_root
   end
 
+  resources :documents
+
+  get 'library' => 'documents#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
