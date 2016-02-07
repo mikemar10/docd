@@ -15,11 +15,11 @@
         <%= link_to 'UPLOAD', new_document_path, class: 'navbar-right' %>
         <%= link_to 'LIBRARY', library_path, class: 'navbar-right' %>
         <%= link_to current_user.email, '#', class: 'navbar-right' %>
-        <%= link_to 'SIGN OUT', sign_out_path, class: 'navbar-right', method: :delete %>
+        <%= button_to 'Sign out', sign_out_path, class: 'navbar-right', method: :delete %>
       </div>
     <% else %>
       <div id="navbar" class="navbar-collapse collapse">
-        <%= link_to 'SIGN IN', sign_in_path, class: 'navbar-right' %>
+        <%= button_to 'Sign in', sign_in_path, class: 'navbar-right', method: :get %>
       </div>
     <% end %>
   </div>

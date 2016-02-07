@@ -1,3 +1,4 @@
+require 'pry'
 module Features
   module ClearanceHelpers
     def reset_password_for(email)
@@ -16,7 +17,9 @@ module Features
       visit sign_in_path
       fill_in "session_email", with: email
       fill_in "session_password", with: password
-      click_button I18n.t("helpers.submit.session.submit")
+      within('#clearance') do
+        click_button I18n.t("helpers.submit.session.submit")
+      end
     end
 
     def sign_out
@@ -36,7 +39,7 @@ module Features
     end
 
     def expect_user_to_be_signed_out
-      expect(page).to have_content I18n.t("layouts.application.sign_in")
+      expect(page).to have_button I18n.t("layouts.application.sign_in")
     end
 
     def user_with_reset_password
