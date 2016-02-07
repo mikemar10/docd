@@ -14,4 +14,10 @@ module ApplicationHelper
     end
     nil
   end
+
+  # adapted from https://richonrails.com/articles/getting-a-user-s-gravatar
+  def gravatar_url(email, size, secure = true)
+    gravatar = Digest::MD5::hexdigest(email).downcase
+    "http#{'s' if secure}://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
+  end
 end
