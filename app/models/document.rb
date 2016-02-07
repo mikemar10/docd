@@ -1,7 +1,18 @@
 class Document < ActiveRecord::Base
   belongs_to :user
+  validates :user, presence: true
   has_attached_file :document
   validates_attachment :document, presence: true,
-    content_type: { content_type: /\A.*\/pdf\Z/ },
+    content_type: { content_type: /\A.*\/pdf\Z/i },
     size: { less_than: 50.megabytes }
+
+  validates :public, presence: true
+
+  validates :name, length: { maximum: 255 }
+
+  validates :description, length: { 
+    maximum: 2000,
+    tokenizer: lambda { |str| str.split(/\s+/) },
+    too_long: "cannot have more than %{count} words"
+  }
 end
