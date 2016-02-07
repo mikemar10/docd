@@ -13,18 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160206225419) do
 
-  create_table "collections", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.text     "description"
-    t.integer  "documents_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "collections", ["documents_id"], name: "index_collections_on_documents_id"
-  add_index "collections", ["user_id"], name: "index_collections_on_user_id"
-
   create_table "documents", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
