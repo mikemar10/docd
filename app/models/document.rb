@@ -1,4 +1,5 @@
 class Document < ActiveRecord::Base
+  acts_as_taggable
   belongs_to :user
   validates :user, presence: true
   has_attached_file :document
