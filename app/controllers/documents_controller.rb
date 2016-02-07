@@ -31,6 +31,6 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:name, :description, :public, :document)
+    params.require(:document).permit(:name, :description, :public, :document, :tag_list)
   end
 end
