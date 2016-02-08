@@ -25,7 +25,16 @@ class DocumentsController < ApplicationController
       redirect_to library_path
       # TODO: should 404 here instead
     end
+  end
 
+  def edit
+    @document = Document.find(params[:id])
+  end
+
+  def update
+    redirect_to current_user.documents.find(params[:id]).tap { |document|
+      document.update!(document_params)
+    }
   end
 
   private
