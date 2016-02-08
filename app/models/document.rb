@@ -1,6 +1,6 @@
 class Document < ActiveRecord::Base
   include PgSearch
-  multisearchable against: %i[name description]
+  multisearchable against: %i[name description tag_list]
 
   acts_as_taggable
   belongs_to :user
