@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :documents
 
   get 'library' => 'documents#index'
+  get 'search' => 'dashboard#search'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
