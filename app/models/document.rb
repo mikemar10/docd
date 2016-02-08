@@ -1,4 +1,7 @@
 class Document < ActiveRecord::Base
+  include PgSearch
+  multisearchable against: %i[name description]
+
   acts_as_taggable
   belongs_to :user
   validates :user, presence: true
