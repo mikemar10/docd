@@ -20,4 +20,8 @@ module ApplicationHelper
     gravatar = Digest::MD5::hexdigest(email).downcase
     "http#{'s' if secure}://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
   end
+
+  def multisearch(term)
+    PgSearch.multisearch(term).map(&:searchable)
+  end
 end

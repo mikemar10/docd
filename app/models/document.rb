@@ -19,4 +19,8 @@ class Document < ActiveRecord::Base
     tokenizer: lambda { |str| str.split(/\s+/) },
     too_long: "cannot have more than %{count} words"
   }
+
+  def private?
+    self.public == false
+  end
 end
