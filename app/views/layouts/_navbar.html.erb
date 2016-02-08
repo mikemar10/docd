@@ -16,14 +16,12 @@
         <li><%= link_to 'Upload', new_document_path %></li>
         <li><%= link_to 'Library', library_path %></li>
         <li><%= link_to current_user.email, '#' %></li>
-        <li><%= button_to(sign_out_path, form_class: 'btn btn-default navbar-right', method: :delete) do %>
-            Sign out
-          <% end %></li>
+        <li><%= link_to 'Sign out', sign_out_path, method: :delete%></li>
       <% else %>
-        <li><%= button_to(sign_in_path, form_class: 'navbar-form navbar-right', class: 'btn btn-default', method: :get) do %>
-            Sign in
-          <% end %></li>
+        <li><%= link_to 'Sign in', sign_in_path %></li>
       <% end %>
+      </ul>
+  </div>
     </div>
   </div>
 </nav>

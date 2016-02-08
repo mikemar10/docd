@@ -17,13 +17,11 @@ module Features
       visit sign_in_path
       fill_in "session_email", with: email
       fill_in "session_password", with: password
-      within('#clearance') do
-        click_button I18n.t("helpers.submit.session.submit")
-      end
+      click_button I18n.t("helpers.submit.session.submit")
     end
 
     def sign_out
-      click_button I18n.t("layouts.application.sign_out")
+      click_link I18n.t("layouts.application.sign_out")
     end
 
     def sign_up_with(email, password)
@@ -35,11 +33,11 @@ module Features
 
     def expect_user_to_be_signed_in
       visit root_path
-      expect(page).to have_button I18n.t("layouts.application.sign_out")
+      expect(page).to have_link I18n.t("layouts.application.sign_out")
     end
 
     def expect_user_to_be_signed_out
-      expect(page).to have_button I18n.t("layouts.application.sign_in")
+      expect(page).to have_link I18n.t("layouts.application.sign_in")
     end
 
     def user_with_reset_password
