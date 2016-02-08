@@ -1,7 +1,14 @@
-Uploaded by: <%= @document.user.email %>
-<%= @document.name %>
-<%= @document.description %>
-<%= link_to "Read Now!", @document.document.url %>
-<%= image_tag @document.document.url(:thumb) %>
-<%= link_to 'Edit', edit_document_path(@document.id) %>
-<%= link_to 'Delete', document_path(@document.id), method: :delete %>
+<div class="row row-centered">
+  <div class="media col-xs-6 col-centered">
+    <div class="media-left">
+      <%= link_to image_tag(@document.document.url(:thumb), class: 'img-rounded'), @document.document.url %>
+      <%= link_to 'Edit', edit_document_path(@document.id) %>
+      <%= link_to 'Delete', document_path(@document.id), method: :delete %>
+    </div>
+    <div class="media-body">
+      <h3 class="media-heading"><%= @document.name %></h3>
+      <h5 class="media-heading">Uploaded by: <%= @document.user.email %></h5>
+      <p><%= @document.description %></p>
+    </div>
+  </div>
+</div>
