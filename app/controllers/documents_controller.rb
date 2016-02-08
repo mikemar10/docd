@@ -37,6 +37,14 @@ class DocumentsController < ApplicationController
     }
   end
 
+  def destroy
+    current_user.documents.find(params[:id]).tap { |document|
+      document.destroy!
+    }
+    redirect_to library_path
+    # TODO: Flash success?
+  end
+
   private
 
   def document_params

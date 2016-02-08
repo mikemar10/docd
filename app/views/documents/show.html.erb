@@ -4,3 +4,4 @@ Uploaded by: <%= @document.user.email %>
 <%= link_to "Read Now!", @document.document.url %>
 <%= image_tag @document.document.url(:thumb) %>
 <%= link_to 'Edit', edit_document_path(@document.id) %>
+<%= link_to 'Delete', document_path(@document.id), method: :delete %>
