@@ -1,2 +1,9 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<div class="row row-centered">
+  <h1 class="col-centered">Most Popular Document Tags</h1>
+</div>
+<% @shelves.each do |tag, documents| %>
+  <div class="row row-centered">
+    <h2 class="col-centered"><%= tag %></h2>
+  </div>
+  <%= render partial: 'documents/shelf', locals: { documents: documents } %>
+<% end %>
