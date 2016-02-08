@@ -13,9 +13,16 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
       <% if signed_in? %>
-        <li><%= link_to 'Upload', new_document_path %></li>
-        <li><%= link_to 'Library', library_path %></li>
-        <li><%= link_to current_user.email, '#' %></li>
+        <li>
+          <%= link_to new_document_path do %>
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
+          <% end %>
+        </li>
+        <li>
+          <%= link_to library_path do %>
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Library
+          <% end %>
+        </li>
         <li><%= link_to 'Sign out', sign_out_path, method: :delete%></li>
       <% else %>
         <li><%= link_to 'Sign in', sign_in_path %></li>
