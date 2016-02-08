@@ -2,12 +2,12 @@ class Document < ActiveRecord::Base
   acts_as_taggable
   belongs_to :user
   validates :user, presence: true
-  has_attached_file :document
+  has_attached_file :document,
+    styles: { thumb: ['218x256>', :png] }
+
   validates_attachment :document, presence: true,
     content_type: { content_type: /\A.*\/pdf\Z/i },
     size: { less_than: 50.megabytes }
-
-  validates :public, presence: true
 
   validates :name, length: { maximum: 255 }
 

@@ -2,3 +2,4 @@ Uploaded by: <%= @document.user.email %>
 <%= @document.name %>
 <%= @document.description %>
 <%= link_to "Read Now!", @document.document.url %>
+<%= image_tag @document.document.url(:thumb) %>
