@@ -76,10 +76,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  gmail_credentials = YAML.load_file(File.join(Rails.root, 'config', 'gmail.yml'))
+  sendgrid_credentials = YAML.load_file(File.join(Rails.root, 'config', 'sendgrid.yml'))
   config.action_mailer.default_url_options = { host: 'unsupported.me' }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: 'smtp.sendgrid.net',
     port: 587,
     domain: 'unsupported.me',
     authentication: 'plain',
