@@ -1,9 +1,7 @@
-<% documents.each_slice(5) do |shelf| %>
-<ul class="list-group row col-xs-offset-1">
-  <% shelf.each do |document| %>
-    <li class="list-group-item col-xs-2 thumbnail">
+<ul class="list-group row">
+  <% documents.each do |document| %>
+    <li class="list-group-item col-xs-6 col-md-3 thumbnail document-thumbnail">
       <%= link_to image_tag(document.document.url(:thumb), alt: document.name, class: 'img-rounded'), document_path(document.id) %>
     </li>
   <% end %>
 </ul>
-<% end %>
