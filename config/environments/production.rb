@@ -84,7 +84,7 @@ Rails.application.configure do
     domain: 'unsupported.me',
     authentication: 'plain',
     enable_starttls_auto: true,
-    user_name: gmail_credentials['user'],
-    password: gmail_credentials['password']
+    user_name: sendgrid_credentials['user'],
+    password: sendgrid_credentials['password']
   }
 end
