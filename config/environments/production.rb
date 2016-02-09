@@ -76,4 +76,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  gmail_credentials = YAML.load_file(File.join(Rails.root, 'config', 'gmail.yml'))
+  config.action_mailer.default_url_options = { host: 'unsupported.me' }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'unsupported.me',
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: gmail_credentials['user'],
+    password: gmail_credentials['password']
+  }
 end

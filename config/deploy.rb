@@ -19,6 +19,7 @@ set :keep_releases, 5
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push(
   'config/database.yml', 
+  'config/gmail.yml',
   'config/secrets.yml',
   'config/unicorn.rb'
 )
